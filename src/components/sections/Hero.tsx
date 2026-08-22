@@ -121,17 +121,23 @@ export default function Hero() {
           style={{ willChange: "transform, opacity", z: 0 }}
           className="mt-10 flex flex-wrap items-center justify-center gap-4"
         >
-          <Button size="lg" variant="gradient" className="gap-2 rounded-full px-8" asChild>
-            <a href="#contact">
-              Book a call
-              <Icons.arrowRight className="w-4 h-4" aria-hidden="true" />
-            </a>
+          <Button 
+            size="lg" 
+            variant="gradient" 
+            className="gap-2 rounded-full px-8" 
+            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+          >
+            Book a call
+            <Icons.arrowRight className="w-4 h-4" aria-hidden="true" />
           </Button>
-          <Button size="lg" variant="glass" className="rounded-full px-8 gap-2" asChild>
-            <a href="#work">
-              <Icons.layers className="w-4 h-4" aria-hidden="true" />
-              View Projects
-            </a>
+          <Button 
+            size="lg" 
+            variant="glass" 
+            className="rounded-full px-8 gap-2" 
+            onClick={() => document.getElementById('work')?.scrollIntoView({ behavior: 'smooth' })}
+          >
+            <Icons.layers className="w-4 h-4" aria-hidden="true" />
+            View Projects
           </Button>
         </m.div>
 

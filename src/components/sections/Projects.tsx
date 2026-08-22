@@ -74,7 +74,7 @@ const ProjectCard = ({
     <m.div
       style={{ scale, y, opacity, zIndex: index, z: 0, willChange: "transform, opacity" }}
       className={cn(
-        "absolute inset-0 h-[300px] md:h-[500px] w-full rounded-2xl md:rounded-3xl border glass shadow-[0_0_50px_rgba(0,0,0,0.5)] overflow-hidden",
+        "absolute inset-0 h-[260px] md:h-[500px] w-full rounded-2xl md:rounded-3xl border glass shadow-[0_0_50px_rgba(0,0,0,0.5)] overflow-hidden",
         project.borderColor
       )}
     >
@@ -162,22 +162,22 @@ export default function Projects() {
         </AnimatePresence>
 
         {/* Fixed Title at the top */}
-        <div className="absolute top-12 md:top-24 left-0 w-full text-center z-20 px-4">
-          <h2 className="text-2xl md:text-5xl font-bold text-white mb-2 md:mb-4">
+        <div className="absolute top-6 md:top-24 left-0 w-full text-center z-20 px-4">
+          <h2 className="text-2xl md:text-5xl font-bold text-white mb-1 md:mb-4">
             Featured <span className="text-transparent bg-clip-text bg-gradient-to-r from-neutral-400 to-neutral-600">Showcase.</span>
           </h2>
-          <p className="text-neutral-400 text-sm md:text-lg max-w-2xl mx-auto">
+          <p className="text-neutral-400 text-sm md:text-lg max-w-2xl mx-auto hidden sm:block">
             Scroll down to explore the projects in detail.
           </p>
         </div>
 
         {/* Content Container (2 Columns) */}
-        <div className="w-full max-w-6xl mx-auto px-4 z-10 flex items-center justify-center mt-20 md:mt-12 h-full">
+        <div className="w-full max-w-6xl mx-auto px-4 z-10 flex items-center justify-center mt-12 md:mt-12 h-full">
           
           <div className="w-full grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center">
             
             {/* Left Column (Pinned Info) */}
-            <div className="md:col-span-5 flex flex-col justify-center h-[250px] md:h-[400px] order-2 md:order-1 relative">
+            <div className="md:col-span-5 flex flex-col justify-center h-[280px] md:h-[400px] order-2 md:order-1 relative">
               <AnimatePresence mode="wait">
                 <m.div
                   key={`info-${activeIndex}`}
@@ -186,33 +186,33 @@ export default function Projects() {
                   exit={{ opacity: 0, y: -20, filter: "blur(4px)" }}
                   transition={{ duration: 0.4, ease: "easeOut" }}
                   style={{ z: 0, willChange: "transform, opacity, filter" }}
-                  className="flex flex-col absolute inset-0 pt-4 md:pt-0"
+                  className="flex flex-col absolute inset-0 pt-0 md:pt-0"
                 >
-                  <div className="flex items-center gap-3 mb-4">
-                    <span className={cn("text-[10px] font-bold tracking-widest uppercase px-3 py-1 rounded-full border glass", activeProject.accent, activeProject.borderColor)}>
+                  <div className="flex items-center gap-2 md:gap-3 mb-2 md:mb-4">
+                    <span className={cn("text-[10px] font-bold tracking-widest uppercase px-2 md:px-3 py-1 rounded-full border glass", activeProject.accent, activeProject.borderColor)}>
                       0{activeIndex + 1} // 04
                     </span>
                     {activeProject.live ? (
-                      <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-green-500/10 border border-green-500/20 text-[10px] text-green-400 font-medium">
+                      <div className="flex items-center gap-1.5 md:gap-2 px-2 md:px-3 py-1 rounded-full bg-green-500/10 border border-green-500/20 text-[10px] text-green-400 font-medium">
                         <div className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
                         Live
                       </div>
                     ) : (
-                      <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-yellow-500/10 border border-yellow-500/20 text-[10px] text-yellow-400 font-medium">
+                      <div className="flex items-center gap-1.5 md:gap-2 px-2 md:px-3 py-1 rounded-full bg-yellow-500/10 border border-yellow-500/20 text-[10px] text-yellow-400 font-medium">
                         🚧 Upcoming
                       </div>
                     )}
                   </div>
 
-                  <h3 className={cn("text-3xl md:text-5xl font-black mb-4 tracking-tight drop-shadow-lg", activeProject.accent)}>
+                  <h3 className={cn("text-2xl md:text-5xl font-black mb-1 md:mb-4 tracking-tight drop-shadow-lg", activeProject.accent)}>
                     {activeProject.title}
                   </h3>
                   
-                  <p className="text-neutral-300 text-sm md:text-base leading-relaxed mb-8">
+                  <p className="text-neutral-300 text-xs md:text-base leading-relaxed mb-3 md:mb-8 line-clamp-3 md:line-clamp-none">
                     {activeProject.description}
                   </p>
 
-                  <div className="flex flex-wrap gap-2 mb-8">
+                  <div className="flex flex-wrap gap-1.5 md:gap-2 mb-4 md:mb-8">
                     {activeProject.tags.map((tag) => (
                       <span
                         key={tag}
@@ -229,14 +229,14 @@ export default function Projects() {
                         href={activeProject.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className={cn("inline-flex items-center gap-2 px-6 py-3 rounded-full font-bold text-sm bg-white/5 hover:bg-white/10 border border-white/10 transition-colors shadow-xl", activeProject.accent)}
+                        className={cn("inline-flex items-center gap-1.5 md:gap-2 px-4 py-2 md:px-6 md:py-3 rounded-full font-bold text-xs md:text-sm bg-white/5 hover:bg-white/10 border border-white/10 transition-colors shadow-xl", activeProject.accent)}
                       >
                         Launch Project
-                        <Icons.arrowRight className="w-4 h-4" />
+                        <Icons.arrowRight className="w-3 h-3 md:w-4 md:h-4" />
                       </a>
                     ) : (
-                      <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-bold text-sm bg-neutral-900 border border-neutral-800 text-neutral-600 cursor-not-allowed">
-                        <Icons.code className="w-4 h-4" />
+                      <div className="inline-flex items-center gap-1.5 md:gap-2 px-4 py-2 md:px-6 md:py-3 rounded-full font-bold text-xs md:text-sm bg-neutral-900 border border-neutral-800 text-neutral-600 cursor-not-allowed">
+                        <Icons.code className="w-3 h-3 md:w-4 md:h-4" />
                         In Development
                       </div>
                     )}
@@ -246,7 +246,7 @@ export default function Projects() {
             </div>
 
             {/* Right Column (Stacking Card Deck) */}
-            <div className="md:col-span-7 relative h-[300px] md:h-[500px] w-full order-1 md:order-2">
+            <div className="md:col-span-7 relative h-[260px] md:h-[500px] w-full order-1 md:order-2 mt-4 md:mt-0">
               {projects.map((project, i) => (
                 <ProjectCard 
                   key={project.title} 

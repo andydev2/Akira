@@ -1,0 +1,31 @@
+Created At: 2026-08-22T09:58:39-05:00
+Completed At: 2026-08-22T09:58:39-05:00
+File Path: `file:///c:/Users/Garci/Desktop/newport/src/components/sections/Testimonials.tsx`
+Total Lines: 274
+Total Bytes: 11099
+Showing lines 38 to 60
+The following code has been modified to include a line number before every line, in the format: <line_number>: <original_line>. Please note that any changes targeting the original code should remove the line number, colon, and leading space.
+38:     rating: 5,
+39:     message: "The dashboard Akira built handles real-time data from 10K+ sensors without breaking a sweat. Incredible performance engineering.",
+40:     date: "June 2026",
+41:   },
+42: ];
+43: 
+44: export default function Testimonials() {
+45:   const [reviews, setReviews] = useState<Review[]>(initialReviews);
+46:   const [isModalOpen, setIsModalOpen] = useState(false);
+47:   const [formData, setFormData] = useState({ name: "", role: "", rating: 5, message: "" });
+48:   const [currentIndex, setCurrentIndex] = useState(0);
+49: 
+50:   useEffect(() => {
+51:     if (isModalOpen) {
+52:       document.body.style.overflow = "hidden";
+53:     } else {
+54:       document.body.style.overflow = "unset";
+55:     }
+56:     return () => {
+57:       document.body.style.overflow = "unset";
+58:     };
+59:   }, [isModalOpen]);
+60: 
+The above content does NOT show the entire file contents. If you need to view any lines of the file which were not shown to complete your task, call this tool again to view those lines.

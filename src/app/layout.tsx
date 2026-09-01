@@ -11,13 +11,13 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.akiradev.online'),
   title: {
-    default: "AkiraDev (Andy Mendoza) — Full Stack Developer",
+    default: "AkiraDev — Full Stack Developer",
     template: "%s | AkiraDev"
   },
   description:
     "Building thoughtful digital experiences through code, design and technology. Full Stack Developer based in Ecuador specializing in React, Next.js, and Node.js.",
   keywords: [
-    "Andy Mendoza",
+    "Akira Dev",
     "AkiraDev",
     "Full Stack Developer",
     "React developer",

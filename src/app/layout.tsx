@@ -9,7 +9,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://andydev2.github.io'),
+  metadataBase: new URL('https://www.akiradev.online'),
   title: {
     default: "AkiraDev (Andy Mendoza) — Full Stack Developer",
     template: "%s | AkiraDev"
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
     description:
       "Building thoughtful digital experiences through code, design and technology.",
     type: "website",
-    url: "https://andydev2.github.io",
+    url: "https://www.akiradev.online",
     siteName: "AkiraDev Portfolio",
     locale: "en_US",
   },

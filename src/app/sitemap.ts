@@ -3,7 +3,7 @@ import { MetadataRoute } from 'next';
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
-      url: 'https://andydev2.github.io',
+      url: 'https://www.akiradev.online',
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 1,

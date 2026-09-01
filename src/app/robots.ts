@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: '/private/',
     },
-    sitemap: 'https://andydev2.github.io/sitemap.xml',
+    sitemap: 'https://www.akiradev.online/sitemap.xml',
   };
 }

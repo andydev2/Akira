@@ -42,7 +42,7 @@ export default function ContactCard() {
 
         <button
           onClick={handleCopy}
-          className="group inline-flex items-center gap-2.5 px-5 py-2.5 rounded-xl bg-accent/10 border border-accent/20 hover:bg-accent/15 hover:border-accent/30 transition-all duration-300"
+          className="group cursor-pointer inline-flex items-center gap-2.5 px-5 py-2.5 rounded-xl bg-accent/10 border border-accent/20 hover:bg-accent/15 hover:border-accent/30 transition-all duration-300"
           aria-label={t.contact.copy}
         >
           <span className="text-sm font-medium text-accent/80 group-hover:text-accent transition-colors">

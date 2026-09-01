@@ -93,7 +93,7 @@ export default function Menu({ isOpen, onClose }: MenuProps) {
         aria-label="Quick connect menu"
       >
         <div className="flex flex-col items-center gap-10 max-w-2xl text-center px-4 w-full">
-          <h2 className="text-2xl sm:text-6xl font-semibold text-base/95 tracking-tight leading-[1.1]"
+          <h2 className="text-2xl sm:text-6xl font-semibold text-base/100 tracking-tight leading-[1.1]"
             style={{
               transform: isOpen ? "translateY(0)" : "translateY(20px)",
               opacity: isOpen ? 1 : 0,
@@ -114,10 +114,10 @@ export default function Menu({ isOpen, onClose }: MenuProps) {
             }}
           >
             <div className="flex flex-col items-center gap-3">
-              <span className="text-xs font-medium text-base/40 tracking-[0.2em] uppercase">
+              <span className="text-xs font-medium text-base/80 tracking-[0.2em] uppercase">
                 {t.menu.emailMe}
               </span>
-              <span className={`text-lg sm:text-xl font-light transition-colors duration-300 ${copied ? 'text-accent' : 'text-base/80 group-hover:text-base'}`}>
+              <span className={`text-lg sm:text-xl font-light transition-colors duration-300 ${copied ? 'text-accent' : 'text-base/100 group-hover:text-base'}`}>
                 {copied ? t.contact.copied : "akiradev78@gmail.com"}
               </span>
             </div>
@@ -138,7 +138,7 @@ export default function Menu({ isOpen, onClose }: MenuProps) {
                 href={social.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-5 rounded-full bg-base/[0.02] border border-base/[0.06] hover:bg-accent/10 hover:border-accent/30 hover:text-accent text-base/50 transition-all duration-300 shadow-xl"
+                className="p-5 rounded-full bg-base/[0.02] border border-base/[0.06] hover:bg-accent/10 hover:border-accent/30 hover:text-accent text-base/80 transition-all duration-300 shadow-xl"
                 aria-label={social.label}
               >
                 {social.icon}
@@ -155,7 +155,7 @@ export default function Menu({ isOpen, onClose }: MenuProps) {
             transition: "opacity 0.5s ease 0.4s",
           }}
         >
-          <div className="flex items-center gap-3 text-xs text-base/20">
+          <div className="flex items-center gap-3 text-xs text-base/60">
             <span className="relative flex h-1.5 w-1.5">
               <span className="animate-pulse-dot absolute inline-flex h-full w-full rounded-full bg-accent opacity-75" />
               <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-accent" />

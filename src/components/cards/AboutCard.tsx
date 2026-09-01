@@ -10,9 +10,9 @@ export default function AboutCard() {
     <BentoCard className="p-6 sm:p-8 flex flex-col justify-between h-full" id="about" delay={240}>
       <div>
         <div className="flex items-center gap-3 mb-6">
-          <span className="text-[10px] font-mono text-base/20 tracking-widest">02</span>
+          <span className="text-[10px] font-mono text-base/60 tracking-widest">02</span>
           <span className="w-6 h-px bg-base/10" />
-          <span className="text-[10px] font-mono text-base/30 tracking-widest uppercase">{t.about.title}</span>
+          <span className="text-[10px] font-mono text-base/70 tracking-widest uppercase">{t.about.title}</span>
         </div>
 
         <p className="text-sm leading-[1.7] text-base/45 max-w-[320px]">
@@ -22,7 +22,7 @@ export default function AboutCard() {
 
       <div className="mt-6 flex items-center gap-2">
         <span className="w-2 h-2 rounded-full bg-accent/30" />
-        <span className="text-[10px] text-base/20 tracking-wider uppercase">{t.about.learning}</span>
+        <span className="text-[10px] text-base/60 tracking-wider uppercase">{t.about.learning}</span>
       </div>
     </BentoCard>
   );

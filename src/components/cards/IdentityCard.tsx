@@ -13,7 +13,7 @@ export default function IdentityCard() {
       {/* Decorative background elements */}
       <div className="absolute inset-0 pointer-events-none select-none" aria-hidden="true">
         {/* Large faded monogram */}
-        <span className="absolute -right-4 -top-6 text-[12rem] sm:text-[16rem] font-bold text-base/[0.015] leading-none tracking-tighter select-none">
+        <span className="absolute -right-4 -top-6 text-[12rem] sm:text-[16rem] font-bold text-base/[0.10] leading-none tracking-tighter select-none">
           AD
         </span>
         {/* Subtle grid lines */}
@@ -29,12 +29,12 @@ export default function IdentityCard() {
       <div className="relative z-10 flex flex-col sm:flex-row sm:items-start justify-between gap-8 sm:gap-4 mb-4 sm:mb-0">
         <div className="order-2 sm:order-1">
           <div className="flex items-center gap-3 mb-6 sm:mb-8">
-            <span className="text-[10px] font-mono text-base/20 tracking-widest">01</span>
+            <span className="text-[10px] font-mono text-base/60 tracking-widest">01</span>
             <span className="w-8 h-px bg-base/10" />
             <span className="text-[10px] font-mono text-accent/50 tracking-widest uppercase">Identity</span>
           </div>
 
-          <h1 className="text-4xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-base/95 leading-[1.1] mb-3">
+          <h1 className="text-4xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-base/100 leading-[1.1] mb-3">
             {t.identity.title}
           </h1>
 
@@ -60,7 +60,7 @@ export default function IdentityCard() {
         </div>
       </div>
 
-      <p className="relative z-10 text-sm sm:text-[15px] leading-relaxed text-base/40 max-w-[340px]">
+      <p className="relative z-10 text-sm sm:text-[15px] leading-relaxed text-base/80 max-w-[340px]">
         {t.identity.description}
       </p>
     </BentoCard>

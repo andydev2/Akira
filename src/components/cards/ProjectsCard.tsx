@@ -30,9 +30,9 @@ export default function ProjectsCard() {
   return (
     <BentoCard className="p-6 sm:p-8 h-full" id="projects" delay={200}>
       <div className="flex items-center gap-3 mb-6">
-        <span className="text-[10px] font-mono text-base/20 tracking-widest">05</span>
+        <span className="text-[10px] font-mono text-base/60 tracking-widest">05</span>
         <span className="w-6 h-px bg-base/10" />
-        <span className="text-[10px] font-mono text-base/30 tracking-widest uppercase">{t.projects.title}</span>
+        <span className="text-[10px] font-mono text-base/70 tracking-widest uppercase">{t.projects.title}</span>
       </div>
 
       <div className="flex flex-col h-[calc(100%-3rem)]">
@@ -44,7 +44,7 @@ export default function ProjectsCard() {
             >
               {/* Number + Skeleton Year */}
               <div className="flex items-center justify-between mb-2">
-                <span className="text-[10px] font-mono text-base/15">{project.number}</span>
+                <span className="text-[10px] font-mono text-base/50">{project.number}</span>
                 <div className="w-8 h-2.5 bg-base/[0.03] rounded-full animate-pulse" />
               </div>
 
@@ -71,27 +71,27 @@ export default function ProjectsCard() {
             >
               {/* Number + Year */}
               <div className="flex items-center justify-between mb-2">
-                <span className="text-[10px] font-mono text-base/15">{project.number}</span>
-                <span className="text-[10px] font-mono text-base/15">{project.year}</span>
+                <span className="text-[10px] font-mono text-base/50">{project.number}</span>
+                <span className="text-[10px] font-mono text-base/50">{project.year}</span>
               </div>
 
               {/* Title */}
-              <h3 className="text-[15px] font-medium text-base/70 group-hover:text-base/90 transition-colors duration-200 mb-1.5">
+              <h3 className="text-[15px] font-medium text-base/90 group-hover:text-base/100 transition-colors duration-200 mb-1.5">
                 {project.title}
               </h3>
 
               {/* Description */}
-              <p className="text-[13px] text-base/25 group-hover:text-base/35 transition-colors mb-2">
+              <p className="text-[13px] text-base/60 group-hover:text-base/70 transition-colors mb-2">
                 {project.description}
               </p>
 
               {/* Tech + Arrow */}
               <div className="flex items-center justify-between mt-auto">
-                <span className="text-[11px] text-base/25 group-hover:text-base/35 transition-colors">
+                <span className="text-[11px] text-base/60 group-hover:text-base/70 transition-colors">
                   {project.tech}
                 </span>
                 <svg
-                  className="w-3.5 h-3.5 text-base/15 group-hover:text-accent/60 group-hover:translate-x-1 transition-all duration-200"
+                  className="w-3.5 h-3.5 text-base/50 group-hover:text-accent/60 group-hover:translate-x-1 transition-all duration-200"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -107,7 +107,7 @@ export default function ProjectsCard() {
 
               {/* Decorative index */}
               {i === 0 && (
-                <div className="absolute -right-1 top-1 text-[5rem] font-bold text-base/[0.01] leading-none select-none pointer-events-none" aria-hidden="true">
+                <div className="absolute -right-1 top-1 text-[5rem] font-bold text-base/[0.05] leading-none select-none pointer-events-none" aria-hidden="true">
                   W
                 </div>
               )}

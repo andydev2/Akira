@@ -27,16 +27,16 @@ export default function ContactCard() {
 
       <div className="relative z-10">
         <div className="flex items-center gap-3 mb-5">
-          <span className="text-[10px] font-mono text-base/20 tracking-widest">10</span>
+          <span className="text-[10px] font-mono text-base/60 tracking-widest">10</span>
           <span className="w-6 h-px bg-base/10" />
           <span className="text-[10px] font-mono text-accent/40 tracking-widest uppercase">{t.contact.title}</span>
         </div>
 
-        <h2 className="text-lg sm:text-xl font-semibold text-base/80 mb-2 tracking-tight">
+        <h2 className="text-lg sm:text-xl font-semibold text-base/100 mb-2 tracking-tight">
           {t.contact.heading}
         </h2>
 
-        <p className="text-sm text-base/30 mb-6 leading-relaxed">
+        <p className="text-sm text-base/70 mb-6 leading-relaxed">
           {t.contact.subheading}
         </p>
 

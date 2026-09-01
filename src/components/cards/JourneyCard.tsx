@@ -15,9 +15,9 @@ export default function JourneyCard() {
   return (
     <BentoCard className="p-6 sm:p-8 h-full" delay={160}>
       <div className="flex items-center gap-3 mb-6">
-        <span className="text-[10px] font-mono text-base/20 tracking-widest">03</span>
+        <span className="text-[10px] font-mono text-base/60 tracking-widest">03</span>
         <span className="w-6 h-px bg-base/10" />
-        <span className="text-[10px] font-mono text-base/30 tracking-widest uppercase">{t.journey.title}</span>
+        <span className="text-[10px] font-mono text-base/70 tracking-widest uppercase">{t.journey.title}</span>
       </div>
 
       <div className="relative flex flex-col gap-5">
@@ -44,12 +44,12 @@ export default function JourneyCard() {
             {/* Content */}
             <div className="flex-1 -mt-0.5">
               <div className="flex items-baseline gap-2">
-                <span className="text-[10px] font-mono text-base/15">{milestone.number}</span>
-                <span className={`text-sm font-medium ${milestone.active ? "text-base/80" : "text-base/40"}`}>
+                <span className="text-[10px] font-mono text-base/50">{milestone.number}</span>
+                <span className={`text-sm font-medium ${milestone.active ? "text-base/100" : "text-base/80"}`}>
                   {milestone.label}
                 </span>
               </div>
-              <span className="text-[11px] text-base/20 mt-0.5 block">{milestone.description}</span>
+              <span className="text-[11px] text-base/60 mt-0.5 block">{milestone.description}</span>
             </div>
           </div>
         ))}

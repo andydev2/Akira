@@ -11,8 +11,8 @@ export default function Footer() {
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-8">
           {/* Left — Brand */}
           <div>
-            <p className="text-sm font-medium text-base/60 mb-1">{t.identity.title}</p>
-            <p className="text-xs text-base/25">{t.identity.subtitle}</p>
+            <p className="text-sm font-medium text-base/90 mb-1">{t.identity.title}</p>
+            <p className="text-xs text-base/60">{t.identity.subtitle}</p>
           </div>
 
           {/* Center — Socials */}
@@ -21,7 +21,7 @@ export default function Footer() {
               href="https://www.instagram.com/akiradev78/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-base/20 hover:text-base/50 transition-colors duration-200"
+              className="text-base/60 hover:text-base/80 transition-colors duration-200"
               aria-label="Instagram"
             >
               <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -34,7 +34,7 @@ export default function Footer() {
               href="https://tiktok.com/@akiradev"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-base/20 hover:text-base/50 transition-colors duration-200"
+              className="text-base/60 hover:text-base/80 transition-colors duration-200"
               aria-label="TikTok"
             >
               <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -45,7 +45,7 @@ export default function Footer() {
               href="https://wa.me/+593998386973"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-base/20 hover:text-base/50 transition-colors duration-200"
+              className="text-base/60 hover:text-base/80 transition-colors duration-200"
               aria-label="WhatsApp"
             >
               <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -56,8 +56,8 @@ export default function Footer() {
 
           {/* Right — Copyright */}
           <div className="text-right">
-            <p className="text-[11px] text-base/15 mb-0.5">© 2026 AkiraDev</p>
-            <p className="text-[10px] text-base/10">{t.footer.designer}</p>
+            <p className="text-[11px] text-base/50 mb-0.5">© 2026 AkiraDev</p>
+            <p className="text-[10px] text-base/40">{t.footer.designer}</p>
           </div>
         </div>
       </div>

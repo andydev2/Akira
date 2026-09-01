@@ -43,9 +43,9 @@ export default function SocialCard() {
   return (
     <BentoCard className="p-6 sm:p-8 h-full" delay={480}>
       <div className="flex items-center gap-3 mb-5">
-        <span className="text-[10px] font-mono text-base/20 tracking-widest">09</span>
+        <span className="text-[10px] font-mono text-base/60 tracking-widest">09</span>
         <span className="w-6 h-px bg-base/10" />
-        <span className="text-[10px] font-mono text-base/30 tracking-widest uppercase">{t.social.title}</span>
+        <span className="text-[10px] font-mono text-base/70 tracking-widest uppercase">{t.social.title}</span>
       </div>
 
       <div className="flex flex-col gap-3">
@@ -55,7 +55,7 @@ export default function SocialCard() {
             href={social.href}
             target={social.href.startsWith("mailto") ? undefined : "_blank"}
             rel={social.href.startsWith("mailto") ? undefined : "noopener noreferrer"}
-            className="group flex items-center gap-3 text-base/40 hover:text-base/80 transition-colors duration-200"
+            className="group flex items-center gap-3 text-base/80 hover:text-base/100 transition-colors duration-200"
             aria-label={social.label}
           >
             <span className="group-hover:text-accent/70 transition-colors duration-200">

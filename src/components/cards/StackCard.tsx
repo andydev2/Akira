@@ -23,9 +23,9 @@ export default function StackCard() {
   return (
     <BentoCard className="p-6 sm:p-8 h-full" id="stack" delay={400}>
       <div className="flex items-center gap-3 mb-6">
-        <span className="text-[10px] font-mono text-base/20 tracking-widest">04</span>
+        <span className="text-[10px] font-mono text-base/60 tracking-widest">04</span>
         <span className="w-6 h-px bg-base/10" />
-        <span className="text-[10px] font-mono text-base/30 tracking-widest uppercase">{t.stack.title}</span>
+        <span className="text-[10px] font-mono text-base/70 tracking-widest uppercase">{t.stack.title}</span>
       </div>
 
       <div className="grid grid-cols-2 gap-x-6 gap-y-5">
@@ -33,7 +33,7 @@ export default function StackCard() {
           <div key={category}>
             <h3
               className={`text-[10px] font-semibold tracking-[0.15em] uppercase mb-3 ${
-                categoryColors[category] || "text-base/30"
+                categoryColors[category] || "text-base/70"
               }`}
             >
               {t.stack.categories[category as keyof typeof t.stack.categories]}
@@ -42,7 +42,7 @@ export default function StackCard() {
               {techs.map((tech) => (
                 <li key={tech} className="flex items-center gap-2">
                   <span className="w-1 h-1 rounded-full bg-base/10 flex-shrink-0" />
-                  <span className="text-xs text-base/40 hover:text-base/60 transition-colors duration-200">
+                  <span className="text-xs text-base/80 hover:text-base/90 transition-colors duration-200">
                     {tech}
                   </span>
                 </li>

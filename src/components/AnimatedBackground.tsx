@@ -1,127 +1,132 @@
 "use client";
 
+import { useEffect, useRef } from "react";
+
 export default function AnimatedBackground() {
+  const spotlightRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    let rafId: number | null = null;
+    const handlePointerMove = (e: PointerEvent) => {
+      if (rafId !== null) cancelAnimationFrame(rafId);
+      rafId = requestAnimationFrame(() => {
+        if (spotlightRef.current) {
+          spotlightRef.current.style.transform = `translate3d(${e.clientX * 0.12}px, ${e.clientY * 0.12}px, 0)`;
+        }
+      });
+    };
+
+    window.addEventListener("pointermove", handlePointerMove, { passive: true });
+    return () => {
+      window.removeEventListener("pointermove", handlePointerMove);
+      if (rafId !== null) cancelAnimationFrame(rafId);
+    };
+  }, []);
+
   return (
     <div
-      className="fixed inset-0 z-0 overflow-hidden pointer-events-none"
+      className="fixed inset-0 z-0 overflow-hidden pointer-events-none select-none"
       aria-hidden="true"
     >
-      {/* Base gradient layer */}
-      <div className="absolute inset-0 bg-background" />
+      {/* Deep Background base */}
+      <div className="absolute inset-0 bg-background transition-colors duration-500" />
 
-      {/* Radial gradient — top left warm */}
+      {/* Aurora Ambient Mesh - Primary Emerald Glow */}
       <div
-        className="absolute -top-[30%] -left-[20%] w-[70vw] h-[70vw] rounded-full opacity-[0.04]"
+        className="absolute -top-[15%] left-[10%] w-[55vw] h-[55vw] rounded-full animate-aurora-1 filter blur-[100px] sm:blur-[140px] opacity-[0.07] dark:opacity-[0.18]"
         style={{
           background:
-            "radial-gradient(circle, var(--color-base) 0%, transparent 70%)",
+            "radial-gradient(circle, var(--color-accent) 0%, rgba(16, 185, 129, 0.4) 45%, transparent 75%)",
         }}
       />
 
-      {/* Radial gradient — bottom right emerald */}
+      {/* Aurora Ambient Mesh - Secondary Cyan / Sky Glow */}
       <div
-        className="absolute -bottom-[20%] -right-[15%] w-[60vw] h-[60vw] rounded-full animate-glow-shift opacity-[0.04]"
+        className="absolute top-[40%] -right-[10%] w-[50vw] h-[50vw] rounded-full animate-aurora-2 filter blur-[110px] sm:blur-[150px] opacity-[0.05] dark:opacity-[0.15]"
         style={{
           background:
-            "radial-gradient(circle, var(--color-accent) 0%, transparent 70%)",
+            "radial-gradient(circle, #0284c7 0%, #38bdf8 35%, transparent 70%)",
         }}
       />
 
-      {/* Drifting SVG curves */}
-      <svg
-        className="absolute inset-0 w-full h-full opacity-[0.03] animate-drift-1"
-        viewBox="0 0 1440 900"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        style={{ willChange: "transform" }}
-      >
-        <path
-          d="M-100 600 C200 400, 600 800, 900 500 S1200 200, 1540 450"
-          stroke="var(--color-base)"
-          strokeOpacity="0.5"
-          strokeWidth="1"
-          fill="none"
-        />
-        <path
-          d="M-50 200 C300 100, 500 500, 800 300 S1100 600, 1500 250"
-          stroke="var(--color-accent)"
-          strokeOpacity="0.4"
-          strokeWidth="0.8"
-          fill="none"
-        />
-      </svg>
+      {/* Aurora Ambient Mesh - Tertiary Indigo Violet Accent */}
+      <div
+        className="absolute -bottom-[20%] left-[20%] w-[45vw] h-[45vw] rounded-full filter blur-[120px] sm:blur-[160px] opacity-[0.04] dark:opacity-[0.12]"
+        style={{
+          background:
+            "radial-gradient(circle, #6366f1 0%, rgba(99, 102, 241, 0.3) 40%, transparent 70%)",
+        }}
+      />
 
-      <svg
-        className="absolute inset-0 w-full h-full opacity-[0.025] animate-drift-2"
-        viewBox="0 0 1440 900"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        style={{ willChange: "transform" }}
+      {/* Interactive Cursor Spotlight Glow (GPU accelerated) */}
+      <div
+        ref={spotlightRef}
+        className="absolute -inset-[300px] transition-transform duration-500 ease-out will-change-transform"
+        style={{ transform: "translate3d(0, 0, 0)" }}
       >
-        <path
-          d="M1540 100 C1200 300, 800 50, 500 350 S100 600, -100 300"
-          stroke="var(--color-base)"
-          strokeOpacity="0.4"
-          strokeWidth="0.8"
-          fill="none"
-        />
-        <path
-          d="M1540 700 C1100 500, 700 800, 400 600 S0 300, -100 650"
-          stroke="var(--color-accent)"
-          strokeOpacity="0.3"
-          strokeWidth="0.6"
-          fill="none"
-        />
-      </svg>
-
-      {/* Floating particles */}
-      {[
-        { w: 2.1, h: 2.4, l: 8, t: 10, g: true, d: 0, dur: 6 },
-        { w: 2.5, h: 1.8, l: 15.5, t: 33, g: false, d: 1.2, dur: 8 },
-        { w: 1.8, h: 2.8, l: 23, t: 56, g: false, d: 2.4, dur: 10 },
-        { w: 3.0, h: 2.2, l: 30.5, t: 4, g: true, d: 3.6, dur: 12 },
-        { w: 2.3, h: 1.6, l: 38, t: 27, g: false, d: 4.8, dur: 6 },
-        { w: 1.9, h: 2.6, l: 45.5, t: 50, g: false, d: 6, dur: 8 },
-        { w: 2.7, h: 2.0, l: 53, t: 73, g: true, d: 7.2, dur: 10 },
-        { w: 2.0, h: 3.1, l: 60.5, t: 21, g: false, d: 8.4, dur: 12 },
-        { w: 2.8, h: 1.7, l: 68, t: 44, g: false, d: 9.6, dur: 6 },
-        { w: 2.4, h: 2.9, l: 75.5, t: 67, g: true, d: 10.8, dur: 8 },
-        { w: 1.7, h: 2.3, l: 83, t: 15, g: false, d: 12, dur: 10 },
-        { w: 2.6, h: 1.9, l: 90.5, t: 38, g: false, d: 13.2, dur: 12 },
-      ].map((p, i) => (
         <div
-          key={i}
-          className="absolute rounded-full animate-float-particle"
+          className="w-[450px] h-[450px] rounded-full filter blur-[90px] opacity-[0.04] dark:opacity-[0.14]"
           style={{
-            width: `${p.w}px`,
-            height: `${p.h}px`,
-            left: `${p.l}%`,
-            top: `${p.t}%`,
-            background: p.g
-              ? "var(--color-accent)"
-              : "var(--color-base)",
-            opacity: p.g ? 0.4 : 0.2,
-            animationDelay: `${p.d}s`,
-            animationDuration: `${p.dur}s`,
+            position: "absolute",
+            left: "50%",
+            top: "50%",
+            transform: "translate(-50%, -50%)",
+            background:
+              "radial-gradient(circle, var(--color-accent) 0%, #06b6d4 50%, transparent 80%)",
           }}
         />
-      ))}
+      </div>
 
-      {/* Subtle grid dots — very faint */}
+      {/* Modern High-Tech Grid Pattern */}
       <div
-        className="absolute inset-0 opacity-[0.015]"
+        className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]"
         style={{
-          backgroundImage:
-            "radial-gradient(circle, var(--color-base) 1px, transparent 1px)",
-          backgroundSize: "48px 48px",
+          backgroundImage: `
+            linear-gradient(to right, var(--color-base) 1px, transparent 1px),
+            linear-gradient(to bottom, var(--color-base) 1px, transparent 1px)
+          `,
+          backgroundSize: "64px 64px",
+          maskImage: "radial-gradient(ellipse at 50% 30%, black 40%, transparent 85%)",
+          WebkitMaskImage: "radial-gradient(ellipse at 50% 30%, black 40%, transparent 85%)",
         }}
       />
 
-      {/* Very subtle noise texture overlay */}
+      {/* Delicate floating and twinkling stars (active in dark mode) */}
+      <div className="hidden dark:block">
+        {[
+          { w: 2.5, l: 12, t: 15, d: 0, dur: 7, color: "var(--color-accent)" },
+          { w: 1.5, l: 24, t: 45, d: 1.5, dur: 9, color: "var(--color-base)" },
+          { w: 2.0, l: 38, t: 20, d: 3.2, dur: 8, color: "#38bdf8" },
+          { w: 3.0, l: 52, t: 65, d: 2.1, dur: 11, color: "var(--color-accent)" },
+          { w: 1.8, l: 68, t: 12, d: 4.5, dur: 6, color: "var(--color-base)" },
+          { w: 2.2, l: 82, t: 40, d: 0.8, dur: 10, color: "#38bdf8" },
+          { w: 1.5, l: 90, t: 75, d: 2.8, dur: 8, color: "var(--color-accent)" },
+          { w: 2.0, l: 18, t: 82, d: 5.0, dur: 9, color: "var(--color-base)" },
+          { w: 2.4, l: 75, t: 90, d: 1.2, dur: 7, color: "var(--color-accent)" },
+          { w: 1.6, l: 45, t: 92, d: 3.8, dur: 10, color: "#38bdf8" },
+        ].map((p, i) => (
+          <div
+            key={i}
+            className="absolute rounded-full animate-float-particle"
+            style={{
+              width: `${p.w}px`,
+              height: `${p.w}px`,
+              left: `${p.l}%`,
+              top: `${p.t}%`,
+              backgroundColor: p.color,
+              boxShadow: `0 0 8px ${p.color}`,
+              animationDelay: `${p.d}s`,
+              animationDuration: `${p.dur}s`,
+            }}
+          />
+        ))}
+      </div>
+
+      {/* Very subtle luxury noise texture overlay */}
       <div
-        className="absolute inset-0 opacity-[0.02] mix-blend-overlay"
+        className="absolute inset-0 opacity-[0.015] dark:opacity-[0.025] mix-blend-overlay"
         style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E")`,
+          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E")`,
           backgroundRepeat: "repeat",
           backgroundSize: "256px 256px",
         }}

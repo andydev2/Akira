@@ -12,25 +12,28 @@ interface ThemeContextType {
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setTheme] = useState<Theme>("dark");
-
-  useEffect(() => {
+  const [theme, setTheme] = useState<Theme>(() => {
+    if (typeof window === "undefined") return "dark";
     const saved = localStorage.getItem("portfolio-theme") as Theme;
     if (saved && (saved === "dark" || saved === "light")) {
-      setTheme(saved);
-      if (saved === "light") {
-        document.documentElement.classList.add("light-theme");
-        document.documentElement.classList.remove("dark");
-      }
-    } else {
-      // Default is dark, match system preference if light is preferred
-      if (window.matchMedia("(prefers-color-scheme: light)").matches) {
-        setTheme("light");
-        document.documentElement.classList.add("light-theme");
-        document.documentElement.classList.remove("dark");
-      }
+      return saved;
     }
-  }, []);
+    if (typeof window !== "undefined" && window.matchMedia("(prefers-color-scheme: light)").matches) {
+      return "light";
+    }
+    return "dark";
+  });
+
+  // Synchronize document classList with current theme
+  useEffect(() => {
+    if (theme === "light") {
+      document.documentElement.classList.add("light-theme");
+      document.documentElement.classList.remove("dark");
+    } else {
+      document.documentElement.classList.remove("light-theme");
+      document.documentElement.classList.add("dark");
+    }
+  }, [theme]);
 
   const toggleTheme = () => {
     const newTheme = theme === "dark" ? "light" : "dark";

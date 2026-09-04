@@ -14,22 +14,22 @@ interface LanguageContextType {
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
-  const [language, setLanguage] = useState<Language>("en");
-
-  // Load preferred language from localStorage on mount
-  useEffect(() => {
+  const [language, setLanguage] = useState<Language>(() => {
+    if (typeof window === "undefined") return "en";
     const saved = localStorage.getItem("portfolio-language") as Language;
     if (saved && (saved === "en" || saved === "es")) {
-      setLanguage(saved);
-      document.documentElement.lang = saved;
-    } else {
-      // Auto-detect browser language
-      if (navigator.language.startsWith("es")) {
-        setLanguage("es");
-        document.documentElement.lang = "es";
-      }
+      return saved;
     }
-  }, []);
+    if (typeof navigator !== "undefined" && navigator.language.startsWith("es")) {
+      return "es";
+    }
+    return "en";
+  });
+
+  // Synchronize document lang
+  useEffect(() => {
+    document.documentElement.lang = language;
+  }, [language]);
 
   const handleSetLanguage = (lang: Language) => {
     setLanguage(lang);

@@ -114,7 +114,7 @@ export default function Menu({ isOpen, onClose }: MenuProps) {
         <span className="hidden sm:inline text-[11px] font-mono text-slate-500 dark:text-slate-400 whitespace-nowrap">Press ESC</span>
         <button
           onClick={onClose}
-          className="cursor-pointer w-10 h-10 rounded-full bg-base/[0.05] border border-base/[0.1] hover:bg-base/[0.1] hover:border-accent/40 flex items-center justify-center text-slate-800 dark:text-slate-200 hover:text-accent transition-all duration-200"
+          className="cursor-pointer w-10 h-10 rounded-full bg-white dark:bg-base/[0.05] border border-slate-200/90 dark:border-base/[0.1] shadow-sm hover:bg-slate-50 dark:hover:bg-base/[0.1] hover:border-emerald-400 dark:hover:border-accent/40 flex items-center justify-center text-slate-700 dark:text-slate-200 hover:text-emerald-600 dark:hover:text-accent transition-all duration-200"
           aria-label="Close menu"
         >
           <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
@@ -140,7 +140,7 @@ export default function Menu({ isOpen, onClose }: MenuProps) {
                 key={link.href}
                 href={link.href}
                 onClick={onClose}
-                className="px-4 py-2 rounded-xl bg-base/[0.03] border border-base/[0.08] hover:bg-accent/10 hover:border-accent/30 text-xs sm:text-sm font-medium text-slate-800 dark:text-slate-200 hover:text-accent transition-all duration-200 whitespace-nowrap"
+                className="px-4 py-2 rounded-xl bg-slate-100/90 dark:bg-base/[0.03] border border-slate-200/90 dark:border-base/[0.08] hover:bg-emerald-50 dark:hover:bg-accent/10 hover:border-emerald-300 dark:hover:border-accent/30 text-xs sm:text-sm font-medium text-slate-700 dark:text-slate-200 hover:text-emerald-600 dark:hover:text-accent transition-all duration-200 whitespace-nowrap"
               >
                 {link.label}
               </a>
@@ -154,13 +154,13 @@ export default function Menu({ isOpen, onClose }: MenuProps) {
 
           <button
             onClick={handleCopy}
-            className="cursor-pointer group relative w-full sm:w-auto px-8 py-5 rounded-2xl bg-base/[0.03] border border-base/[0.08] hover:bg-base/[0.06] hover:border-accent/40 hover:shadow-[0_0_30px_rgba(52,211,153,0.15)] transition-all duration-300"
+            className="cursor-pointer group relative w-full sm:w-auto px-8 py-5 rounded-2xl bg-white dark:bg-base/[0.03] border border-slate-200/90 dark:border-base/[0.08] hover:border-emerald-500/40 dark:hover:border-accent/40 shadow-sm hover:shadow-[0_4px_25px_rgba(5,150,105,0.12)] dark:hover:shadow-[0_0_30px_rgba(52,211,153,0.15)] transition-all duration-300"
           >
             <div className="flex flex-col items-center gap-2">
-              <span className="text-[10px] font-mono font-medium text-accent tracking-[0.2em] uppercase whitespace-nowrap">
+              <span className="text-[10px] font-mono font-semibold text-emerald-600 dark:text-accent tracking-[0.2em] uppercase whitespace-nowrap">
                 {t.menu.emailMe}
               </span>
-              <span className={`text-base sm:text-xl font-mono transition-colors duration-300 whitespace-nowrap ${copied ? "text-accent font-semibold" : "text-slate-800 dark:text-slate-100"}`}>
+              <span className={`text-base sm:text-xl font-mono font-medium transition-colors duration-300 whitespace-nowrap ${copied ? "text-emerald-600 dark:text-accent font-semibold" : "text-slate-900 dark:text-slate-100"}`}>
                 {copied ? t.contact.copied : "akiradev78@gmail.com"}
               </span>
             </div>
@@ -173,7 +173,7 @@ export default function Menu({ isOpen, onClose }: MenuProps) {
                 href={social.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-3.5 sm:p-4 rounded-2xl bg-base/[0.03] border border-base/[0.08] hover:bg-accent/10 hover:border-accent/40 hover:text-accent text-slate-800 dark:text-slate-200 transition-all duration-300 shadow-md"
+                className="p-3.5 sm:p-4 rounded-2xl bg-white dark:bg-base/[0.03] border border-slate-200/90 dark:border-base/[0.08] shadow-sm hover:bg-emerald-50 dark:hover:bg-accent/10 hover:border-emerald-400 dark:hover:border-accent/40 text-slate-700 dark:text-slate-200 hover:text-emerald-600 dark:hover:text-accent transition-all duration-300"
                 aria-label={social.label}
               >
                 {social.icon}
@@ -184,10 +184,10 @@ export default function Menu({ isOpen, onClose }: MenuProps) {
 
         {/* Bottom info */}
         <div className="mt-8 flex justify-center">
-          <div className="flex items-center gap-2 text-xs font-mono text-slate-500 dark:text-slate-400 whitespace-nowrap">
+          <div className="flex items-center gap-2 text-xs font-mono text-slate-600 dark:text-slate-400 whitespace-nowrap">
             <span className="relative flex h-2 w-2" aria-hidden="true">
-              <span className="animate-radar-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75" />
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-accent" />
+              <span className="animate-radar-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 dark:bg-accent opacity-75" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500 dark:bg-accent" />
             </span>
             <span className="whitespace-nowrap">{t.location.available}</span>
           </div>

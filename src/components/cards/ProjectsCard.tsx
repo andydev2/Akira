@@ -65,7 +65,7 @@ export default function ProjectsCard() {
               <h3 className="text-base sm:text-lg font-semibold text-base/95 group-hover/project:text-accent transition-colors duration-200 mb-1">
                 {t.projects.mugen.title}
               </h3>
-              <p className="text-[13px] text-base/70 leading-relaxed mb-3">
+              <p className="text-[13px] text-slate-700 dark:text-slate-300 leading-relaxed mb-3">
                 {t.projects.mugen.description}
               </p>
 
@@ -103,7 +103,7 @@ export default function ProjectsCard() {
                 {/* Skeleton Header */}
                 <div className="flex items-center justify-between mb-3 gap-2">
                   <div className="flex items-center gap-2">
-                    <span className="text-[10px] font-mono text-base/40 font-bold">02</span>
+                    <span className="text-[10px] font-mono text-slate-500 dark:text-slate-400 font-bold">02</span>
                     <div className="flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-amber-500/10 border border-amber-500/25">
                       <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse shrink-0" />
                       <span className="text-[8px] font-mono font-semibold text-amber-600 dark:text-amber-400 tracking-wider uppercase whitespace-nowrap">
@@ -144,7 +144,7 @@ export default function ProjectsCard() {
                 {/* Skeleton Header */}
                 <div className="flex items-center justify-between mb-3 gap-2">
                   <div className="flex items-center gap-2">
-                    <span className="text-[10px] font-mono text-base/30 font-bold">03</span>
+                    <span className="text-[10px] font-mono text-slate-500 dark:text-slate-400 font-bold">03</span>
                     <div className="flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-blue-500/10 border border-blue-500/20">
                       <span className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse shrink-0" />
                       <span className="text-[8px] font-mono font-semibold text-blue-600 dark:text-blue-400 tracking-wider uppercase whitespace-nowrap">
